@@ -127,7 +127,7 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-[70rem] mx-auto">
           {step === "upload" && <DocumentUpload onDocumentProcessed={handleDocumentProcessed} />}
 
           {step === "chat" && documentData && (

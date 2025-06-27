@@ -390,18 +390,18 @@ ${completedContent
             <ArrowLeft className="w-4 h-4 mr-2" />
             Start Over
           </Button>
-          <Button onClick={handleDownload} disabled={isDownloading}>
+          {/* <Button onClick={handleDownload} disabled={isDownloading}>
             {isDownloading ? (
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
             ) : (
               <Download className="w-4 h-4 mr-2" />
             )}
             Download Document
-          </Button>
+          </Button> */}
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-5 gap-6">
         {/* Document Preview */}
         <div className="lg:col-span-3">
           <Card>
@@ -419,10 +419,35 @@ ${completedContent
               </div>
             </CardContent>
           </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Download Info</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <Button onClick={handleDownload} className="w-full" disabled={isDownloading}>
+                {isDownloading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                    Preparing...
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Completed Document
+                  </>
+                )}
+              </Button>
+              <p className="text-xs text-gray-500 text-center">
+                {documentData.fileName.endsWith(".docx") || documentData.fileName.endsWith(".doc")
+                  ? "Downloads as Word-compatible document"
+                  : "Downloads as text file"}
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Summary Sidebar */}
-        <div className="space-y-4">
+        <div className="space-y-4 col-span-2">
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">Summary</CardTitle>
@@ -430,7 +455,7 @@ ${completedContent
             <CardContent className="space-y-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Original File</p>
-                <p className="font-medium">{documentData.fileName}</p>
+                <p className="font-medium overflow-hidden text-ellipsis">{documentData.fileName}</p>
               </div>
 
               <div>
@@ -519,31 +544,7 @@ ${completedContent
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Download Info</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <Button onClick={handleDownload} className="w-full" disabled={isDownloading}>
-                {isDownloading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                    Preparing...
-                  </>
-                ) : (
-                  <>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Completed Document
-                  </>
-                )}
-              </Button>
-              <p className="text-xs text-gray-500 text-center">
-                {documentData.fileName.endsWith(".docx") || documentData.fileName.endsWith(".doc")
-                  ? "Downloads as Word-compatible document"
-                  : "Downloads as text file"}
-              </p>
-            </CardContent>
-          </Card>
+          
         </div>
       </div>
     </div>
