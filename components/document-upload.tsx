@@ -349,8 +349,7 @@ export default function DocumentUpload({ onDocumentProcessed }: DocumentUploadPr
           Upload Legal Document
         </CardTitle>
         <CardDescription>
-          Upload your .docx, .doc, or .txt file. We'll detect only the placeholders that actually exist in your
-          document.
+          Upload your .docx, .doc, or .txt file. Placeholders will be automatically detected in your document.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -382,7 +381,7 @@ export default function DocumentUpload({ onDocumentProcessed }: DocumentUploadPr
             <div>
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
               <p className="text-lg font-medium text-gray-700">Processing document...</p>
-              <p className="text-sm text-gray-500">Detecting existing placeholders only</p>
+              <p className="text-sm text-gray-500">Detecting existing placeholders</p>
             </div>
           ) : isDragActive ? (
             <p className="text-lg font-medium text-blue-600">Drop the document here...</p>
@@ -401,7 +400,6 @@ export default function DocumentUpload({ onDocumentProcessed }: DocumentUploadPr
             <h4 className="font-medium text-green-900 mb-2">✅ Smart placeholder detection!</h4>
             <ul className="text-sm text-green-800 space-y-1">
               <li>• Detects only placeholders that actually exist in your document</li>
-              <li>• No hardcoded or artificial placeholders</li>
               <li>• Handles various formats: [brackets], $[amounts], Name: ____</li>
               <li>• Preserves original formatting in final document</li>
             </ul>
