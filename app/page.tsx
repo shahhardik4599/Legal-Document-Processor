@@ -49,6 +49,42 @@ export default function Home() {
             download your completed document.
           </p>
         </div>
+        {/* Features Section */}
+        {step === "upload" && (
+          <div className="mt-16 mb-8 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card>
+              <CardHeader>
+                <FileText className="w-8 h-8 text-blue-600 mb-2" />
+                <CardTitle>Smart Detection</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Automatically identifies placeholders and template text in your legal documents
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <MessageCircle className="w-8 h-8 text-green-600 mb-2" />
+                <CardTitle>Conversational Interface</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>Fill in document details through an intuitive chat-like experience</CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <Download className="w-8 h-8 text-purple-600 mb-2" />
+                <CardTitle>Original Document</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>Download your original document with all placeholders filled in</CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* Progress Steps */}
         <div className="flex justify-center mb-8">
@@ -107,42 +143,7 @@ export default function Home() {
           )}
         </div>
 
-        {/* Features Section */}
-        {step === "upload" && (
-          <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card>
-              <CardHeader>
-                <FileText className="w-8 h-8 text-blue-600 mb-2" />
-                <CardTitle>Smart Detection</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Automatically identifies placeholders and template text in your legal documents
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <MessageCircle className="w-8 h-8 text-green-600 mb-2" />
-                <CardTitle>Conversational Interface</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>Fill in document details through an intuitive chat-like experience</CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Download className="w-8 h-8 text-purple-600 mb-2" />
-                <CardTitle>Original Document</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>Download your original document with all placeholders filled in</CardDescription>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+        
       </div>
     </div>
   )
